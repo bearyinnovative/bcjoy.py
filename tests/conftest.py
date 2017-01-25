@@ -1,10 +1,24 @@
 import pytest
 
+from flask import g
+
 from bcjoy import app as bcjoy_app
 
 
+class MockTeam(object):
+
+    def __init__(self, count_total_members, count_online_members):
+        self.count_total_members = count_total_members
+        self.count_online_members = count_online_members
+
+
 @pytest.fixture
-def app(request):
+def mock_team():
+    return MockTeam(0, 0)
+
+
+@pytest.fixture
+def app(request, mock_team):
     """Flask application test fixture"""
     app_ = bcjoy_app.setup(
         TESTING=True
@@ -12,6 +26,8 @@ def app(request):
 
     ctx = app_.app_context()
     ctx.push()
+
+    g.bcjoy_team = mock_team
 
     def teardown():
         ctx.pop()
