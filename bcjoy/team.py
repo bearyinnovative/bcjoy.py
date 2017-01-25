@@ -41,23 +41,18 @@ class Team(object):
             return
         with self._lock:
             # hack for bearychat@0.2.0
-            self._members = [member._data for member in members]
-
-    def validate_token(self):
-        self.update_info()
-        with self._lock:
-            if 'subdomain' not in self._info:
-                raise ValueError('invalid rtm token')
+            self._members = [member for member in members]
 
     @property
     def count_total_members(self):
         with self._lock:
-            return len(self._members)
+            return len([i for i in self._members if i.is_normal()])
 
     @property
     def count_online_members(self):
         with self._lock:
-            return len(self._members.filter(lambda u: u.is_online()))
+            return len([i for i in self._members
+                        if i.is_online() and i.is_normal()])
 
     def __str__(self):
         return '{}'.format(self._info.get('subdomain', '<unknown>'))
@@ -96,11 +91,11 @@ def spawn_polling(team, poll_interval_in_ms):
 
 def setup(app):
     team = Team(must_read_config(os.environ))
-    team.validate_token()
 
     polling_thread = spawn_polling(team, POLL_INTERVAL_IN_MS)
 
-    with app.app_context():
+    @app.before_request
+    def bind_team():
         g.bcjoy_team = team
         g.bcjoy_team_polling_thread = polling_thread
 
