@@ -5,7 +5,6 @@ from bcjoy import app
 
 def setup_leancloud():
     import leancloud
-    from leancloud_cloud import engine
 
     leancloud.init(
         os.environ['LEANCLOUD_APP_ID'],
@@ -14,7 +13,7 @@ def setup_leancloud():
     )
     leancloud.use_master_key(False)
 
-    return engine
+    return leancloud.Engine(app.setup())
 
 
 application = None
