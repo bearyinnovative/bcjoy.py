@@ -7,6 +7,8 @@
 
 from flask import Flask
 
+from bcjoy import landing
+
 
 class App(Flask):
     """bcjoy application instance"""
@@ -24,5 +26,8 @@ def setup(**settings):
     app = App(__name__)
 
     app.config.update(settings)
+
+    # setup components
+    app = landing.setup(app)
 
     return app

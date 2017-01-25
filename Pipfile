@@ -8,3 +8,4 @@ leancloud-sdk = "*"
 
 [dev-packages]
 gunicorn = "*"
+pytest = "*"
