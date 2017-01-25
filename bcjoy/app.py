@@ -8,6 +8,7 @@
 from flask import Flask
 
 from bcjoy import landing
+from bcjoy import team
 
 
 class App(Flask):
@@ -28,6 +29,7 @@ def setup(**settings):
     app.config.update(settings)
 
     # setup components
+    app = team.setup(app)
     app = landing.setup(app)
 
     return app

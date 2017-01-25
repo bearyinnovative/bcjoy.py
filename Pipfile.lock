@@ -7,11 +7,12 @@
             }
         ],
         "requires": {},
-        "Pipfile-sha256": "9c6dcbb043868a0c3b60f3218312138af445dd82d5095f8c4abab296f5becb6a"
+        "Pipfile-sha256": "68b279ec6bc2fcc4054b16ddc48bcde9b0ec8836ea788321bef1e96a083f3e1b"
     },
     "default": {
         "flask": "*",
         "leancloud-sdk": "==1.9.0",
+        "bearychat": "==0.2.0",
         "arrow": "==0.10.0",
         "click": "==6.7",
         "Flask": "==0.12",
@@ -27,6 +28,12 @@
         "Werkzeug": "==0.11.15"
     },
     "develop": {
-        "gunicorn": "==19.6.0"
+        "gunicorn": "==19.6.0",
+        "pytest": "==3.0.6",
+        "appdirs": "==1.4.0",
+        "packaging": "==16.8",
+        "py": "==1.4.32",
+        "pyparsing": "==2.1.10",
+        "six": "==1.10.0"
     }
 }

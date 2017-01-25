@@ -5,6 +5,7 @@ verify_ssl = true
 [packages]
 flask = "*"
 leancloud-sdk = "*"
+bearychat = "*"
 
 [dev-packages]
 gunicorn = "*"
