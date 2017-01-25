@@ -1,0 +1,32 @@
+{
+    "_meta": {
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ],
+        "requires": {},
+        "Pipfile-sha256": "9c6dcbb043868a0c3b60f3218312138af445dd82d5095f8c4abab296f5becb6a"
+    },
+    "default": {
+        "flask": "*",
+        "leancloud-sdk": "==1.9.0",
+        "arrow": "==0.10.0",
+        "click": "==6.7",
+        "Flask": "==0.12",
+        "iso8601": "==0.1.11",
+        "itsdangerous": "==0.24",
+        "Jinja2": "==2.9.4",
+        "MarkupSafe": "==0.23",
+        "python-dateutil": "==2.6.0",
+        "qiniu": "==7.1.0",
+        "requests": "==2.13.0",
+        "six": "==1.10.0",
+        "typing": "==3.5.3.0",
+        "Werkzeug": "==0.11.15"
+    },
+    "develop": {
+        "gunicorn": "==19.6.0"
+    }
+}
