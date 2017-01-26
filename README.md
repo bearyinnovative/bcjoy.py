@@ -1,5 +1,8 @@
 # bcjoy.py
 
+[![@BearyChat](http://openapi.beary.chat/badge.svg)](http://openapi.beary.chat/join)
+[![Build Status](https://travis-ci.org/bearyinnovative/bcjoy.py.svg)](https://travis-ci.org/bearyinnovative/bcjoy.py)
+
 🐼 一键加入你喜欢的 BearyChat 团队
 
 ## 功能
