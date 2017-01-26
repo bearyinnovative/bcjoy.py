@@ -6,7 +6,9 @@
 """
 
 from flask import Blueprint
+from flask import g
 from flask import redirect
+from flask import render_template
 from flask import url_for
 
 
@@ -15,7 +17,7 @@ bp = Blueprint('landing', __name__)
 
 @bp.route('/join', methods=['GET'])
 def join():
-    return 'foobar'
+    return render_template('join.html', team=g.bcjoy_team)
 
 
 def setup(app):

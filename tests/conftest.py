@@ -7,14 +7,17 @@ from bcjoy import app as bcjoy_app
 
 class MockTeam(object):
 
-    def __init__(self, count_total_members, count_online_members):
+    def __init__(self, name, subdomain,
+                 count_total_members, count_online_members):
+        self.name = name
+        self.subdomain = subdomain
         self.count_total_members = count_total_members
         self.count_online_members = count_online_members
 
 
 @pytest.fixture
 def mock_team():
-    return MockTeam(0, 0)
+    return MockTeam('mock', 'mock', 0, 0)
 
 
 @pytest.fixture

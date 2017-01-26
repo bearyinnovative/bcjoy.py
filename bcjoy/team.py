@@ -44,6 +44,16 @@ class Team(object):
             self._members = [member for member in members]
 
     @property
+    def name(self):
+        with self._lock:
+            return self._info.get('name', '<unknown>')
+
+    @property
+    def subdomain(self):
+        with self._lock:
+            return self._info.get('subdomain', '<unknown>')
+
+    @property
     def count_total_members(self):
         with self._lock:
             return len([i for i in self._members if i.is_normal()])
@@ -55,7 +65,8 @@ class Team(object):
                         if i.is_online() and i.is_normal()])
 
     def __str__(self):
-        return '{}'.format(self._info.get('subdomain', '<unknown>'))
+        with self._lock:
+            return '{}'.format(self._info.get('subdomain', '<unknown>'))
 
 
 def must_read_config(d):
@@ -91,6 +102,7 @@ def spawn_polling(team, poll_interval_in_ms):
 
 def setup(app):
     team = Team(must_read_config(os.environ))
+    team.update_info()
 
     polling_thread = spawn_polling(team, POLL_INTERVAL_IN_MS)
 
