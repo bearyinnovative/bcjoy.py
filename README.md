@@ -4,8 +4,8 @@
 
 ## 功能
 
-✔️️ 团队简介 landing page
-✔️️ 加入团队 svg badge
+- ✔️️ 团队简介 landing page
+- ✔️️ 加入团队 svg badge
 
 ## 安装 & 使用
 
