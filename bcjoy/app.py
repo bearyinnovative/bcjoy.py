@@ -7,7 +7,7 @@
 
 from flask import Flask
 
-from bcjoy import badge
+from bcjoy import badge_page
 from bcjoy import landing
 from bcjoy import team
 
@@ -33,6 +33,6 @@ def setup(**settings):
     if not app.config.get('TESTING'):
         app = team.setup(app)
     app = landing.setup(app)
-    app = badge.setup(app)
+    app = badge_page.setup(app)
 
     return app
