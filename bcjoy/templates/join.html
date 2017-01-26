@@ -11,7 +11,7 @@
     <p class="status">
       当前在线 <b class="active">{{ team.count_online_members }}</b> / <b class="total">{{ team.count_total_members }}</b>
     </p>
-    <a class="loading" href="/join/apply">现在加入</a>
+    <a class="loading" href="{{ url_for('landing.join_apply') }}">现在加入</a>
     <p class="signin">或 <a href="https://{{ team.subdomain }}.bearychat.com" target="_top">登录</a>.</p>
     <footer>
       powered by <a href="https://github.com/bearyinnovative/bcjoy.py" target="_blank">bcjoy.py</a>

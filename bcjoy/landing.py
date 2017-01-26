@@ -20,6 +20,11 @@ def join():
     return render_template('join.html', team=g.bcjoy_team)
 
 
+@bp.route('/join/apply', methods=['GET'])
+def join_apply():
+    return redirect(g.bcjoy_team.invite_url)
+
+
 def setup(app):
     app.register_blueprint(bp, url_prefix='')
 
