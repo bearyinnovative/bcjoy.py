@@ -87,12 +87,14 @@ def must_read_config(d):
 def spawn_polling(team, poll_interval_in_ms):
 
     def poll():
+        # hack for ratelimit
+        poll_interval_in_second = poll_interval_in_ms / 2 / 1000
         while True:
-            time.sleep(poll_interval_in_ms / 1000)
-
-            logging.info('team {} update members start...'.format(team))
             team.update_members()
-            logging.info('team {} update members finished...'.format(team))
+            time.sleep(poll_interval_in_second)
+
+            team.update_info()
+            time.sleep(poll_interval_in_second)
 
     t = threading.Thread(target=poll)
     t.start()
@@ -102,7 +104,6 @@ def spawn_polling(team, poll_interval_in_ms):
 
 def setup(app):
     team = Team(must_read_config(os.environ))
-    team.update_info()
 
     polling_thread = spawn_polling(team, POLL_INTERVAL_IN_MS)
 
