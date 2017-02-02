@@ -1,6 +1,6 @@
 # bcjoy.py
 
-[![@BearyChat](http://openapi.beary.chat/badge.svg)](http://openapi.beary.chat/join)
+[![@BearyChat](https://bearychat-openapi.leanapp.cn/badge/bearychat.svg)](https://bearychat-openapi.leanapp.cn/join)
 [![Build Status](https://travis-ci.org/bearyinnovative/bcjoy.py.svg)](https://travis-ci.org/bearyinnovative/bcjoy.py)
 
 🐼 一键加入你喜欢的 BearyChat 团队
@@ -47,6 +47,10 @@ $ pip install -r requirements.txt
 
 [![Deploy to LeanEngine](http://ac-32vx10b9.clouddn.com/109bd02ee9f5875a.png)](https://leancloud.cn/1.1/functions/_ops/deploy-button)
 
+设置环境变量：
+
+- 在 leancloud 云引擎设置中新增 `BCJOY_RTM_TOKEN` 环境变量，值为 hubot rtm token
+- 在 leancloud 云引擎设置中新增 `BCJOY_INVITE_URL` 环境变量，值为团队邀请链接
 
 ## License
 
